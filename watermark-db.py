@@ -11,8 +11,11 @@ def add_watermark(input_path, output_path, watermark_path, watermark_scale):
 
         # Open the watermark image and resize it
         with Image.open(watermark_path) as watermark:
-            watermark.thumbnail(
-                (watermark_width, watermark_height), Image.ANTIALIAS)
+            # if this line does not work
+            watermark.thumbnail((watermark_width, watermark_height))
+            # Ucomment the code below if ATTRIBUTE ERROR occurs
+            # watermark.thumbnail(
+            #     (watermark_width, watermark_height), Image.ANTIALIAS)
 
             # Calculate the position to place the watermark at the bottom left corner
             bottom_left_position = (
